@@ -20,7 +20,7 @@ Dès qu’un journal contient des findings à corriger.
 
 ### Stop et ingest
 
-- [ ] Clé OpenRouter présente. Sinon STOP + message 30–50 €.
+- [ ] `sh bin/check-openrouter-key.sh` → `status=present`. Sinon STOP + message canonique.
 - [ ] Journal / rapport présents. Vides → STOP, renvoyer vers l’audit.
 - [ ] Confirmé sans preuve → ne pas planifier comme Confirmé ; signaler le trou, renvoyer à l’auteur.
 - [ ] Aucun finding ajouté.
@@ -50,7 +50,7 @@ Dès qu’un journal contient des findings à corriger.
 
 ### Clôture
 
-- [ ] `LIVRABLES/plan-correctifs.md` + fiches `LIVRABLES/prs/`.
+- [ ] Tickets `livrables/tickets/` avec prompt à coller, zéro payload ; plan + fiches PR.
 - [ ] Journal : `fix-task` en append. Findings intacts.
 - [ ] Rappel écrit : le retest après merge = `delta-reaudit`.
 - [ ] Pas de délai inventé.

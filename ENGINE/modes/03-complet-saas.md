@@ -19,8 +19,9 @@ Si le produit est surtout un agent / MCP : ouvre **aussi** l’esprit du mode 4 
 ## Portails
 
 1. Clé OpenRouter. Sinon STOP.
-2. Brief avec hôtes, rôles, **combien de tenants** le client met à disposition.
-3. Compte-test : au moins un. Deux tenants complets (deux orgs, deux jeux d’identifiants) : exigés pour toute conclusion d’isolation.
+2. Brief avec hôtes, rôles, postures, **combien de tenants** le client met à disposition.
+3. Compte-test : au moins un pour l’approche intérieur. Deux tenants complets : exigés pour toute conclusion d’isolation. Mots de passe hors chat (`accounts.local.md`).
+4. `scope.code_path` présent → `SPECIALISTS/code-source`. Absent → code `Non testé`.
 
 ### Règle des deux tenants
 

@@ -20,7 +20,7 @@
     },
     "surface": {
       "type": "string",
-      "description": "Surface nommée si l'URL ne suffit pas (cookie, tool MCP)."
+      "description": "Surface nommée si l'URL ne suffit pas (cookie, tool MCP, path:ligne)."
     },
     "excerpt": {
       "type": "string",
@@ -40,7 +40,8 @@
         "lecture-js",
         "lecture-header",
         "lecture-manifest",
-        "compte-test-documenté"
+        "compte-test-documenté",
+        "lecture-source"
       ]
     },
     "content_type": {

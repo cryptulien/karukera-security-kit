@@ -1,50 +1,46 @@
 # Karukera Security Kit — START HERE
 
-Cinq minutes. Dans cet ordre. N’enchaîne rien tant que l’étape 1 n’est pas verte.
+Tu sécurises **ton** application, donc tes revenus. Le kit tourne chez toi. Karukera ne voit pas la cible.
 
-## 1. OpenRouter d’abord — hors chat
+## Le flux
 
-Crée la clé sur https://openrouter.ai/keys. Charge 30 à 50 €. Dépose-la **toi-même**, dans un terminal ou un éditeur, **jamais dans le chat** :
+1. Ouvre ce ZIP dans Claude Code, Cursor, Codex ou un autre agent.
+2. Dépose une clé OpenRouter — beaucoup de modèles **refusent** de mener un audit de sécurité. Hors chat : `GUIDES/deposit-key.md`.
+3. Dis quel projet auditer **chez toi**, la profondeur, et si tu fournis des accès utilisateurs.
+4. Tu reçois les rapports avec les preuves, puis les tickets de correctif — chacun avec un prompt à coller dans ton LLM.
+
+Approches (on peut combiner) : `GUIDES/postures.md`.
+
+- **Extérieur** — ce qu’un inconnu voit.
+- **Code** — le dépôt local.
+- **Intérieur** — depuis un compte du SaaS.
+
+## 1. Clé OpenRouter — hors chat
+
+Claude, Codex et d’autres modèles refusent souvent l’audit. La clé sert à router vers des modèles qui le font. Crée-la sur https://openrouter.ai/keys, charge 30 à 50 €, dépose-la **toi-même** :
 
 ```sh
 sh bin/deposit-openrouter-key.sh
 ```
 
-Procédure complète (éditeur, Windows, révocation) : `GUIDES/deposit-key.md`.
+**Sans clé → arrête-toi.** Ne demande pas la valeur. Ne lis pas `.env`. Lance `sh bin/check-openrouter-key.sh`.
 
-**Sans clé → arrête-toi.** Ne demande pas la valeur. Ne lis pas `.env`. Lance `sh bin/check-openrouter-key.sh`. N’enchaîne aucun agent. N’invente pas un audit local.
+Message si la clé manque :
 
-Message à afficher si la clé manque :
-
-> Pour un audit de qualité avec des modèles frontier (DeepSeek, GLM, etc.), mets 30 à 50 € de crédits sur OpenRouter. C’est largement suffisant pour 1 à 3 audits complets.
+> Claude, Codex et d’autres modèles refusent souvent de mener un audit de sécurité. Dépose une clé OpenRouter pour router vers des modèles qui le font. 30 à 50 € de crédits suffisent pour 1 à 3 audits complets.
 
 > Ne colle pas la clé ici. Dépose-la hors chat : `GUIDES/deposit-key.md`. Quand c’est fait, dis seulement « clé déposée ».
 
-Routage et modèles : `GUIDES/openrouter.md`.
-
 ## 2. Usage autorisé uniquement
 
-Lis `USAGE.md`. Audite **uniquement** un système dont tu as l’autorisation écrite. Zéro exploit, zéro payload, zéro PoC d’attaque.
+Lis `USAGE.md`. Uniquement un système dont tu as l’autorisation écrite. Zéro exploit, zéro payload, zéro PoC d’attaque.
 
-Mode 7 (red-team) : `AUTHORIZED=yes` **et** un fichier `authorization.md` signé. Sinon **stop**.
+Mode red-team : `AUTHORIZED=yes` **et** `authorization.md`. Sinon **stop**.
 
-## 3. Charge les règles
+Mots de passe des comptes de test : `TEMPLATES/accounts.local.md`, jamais le chat.
 
-Avant tout agent, charge `RULES/` dans l’ordre `00` → `07`. La règle `00` est un hard stop.
+## 3. Lance
 
-## 4. Choisis un mode et un routage
+> Audite ce projet chez moi. URL : https://app.exemple.tld. Code : ./mon-app. Complet. Extérieur + intérieur. Les comptes sont dans le brief, pas ici.
 
-Modes : `config/mission-modes.yaml` et `GUIDES/missions.md`.
-
-Routage : `budget` ou `max-frontier` dans `.env` (`KIT_MODE`) et `config/models.yaml`.
-
-- Analyse profonde → Kimi K3. Crawl budget → DeepSeek Flash 0731.
-- Rédaction / priorisation → modèle plus prudent (Claude / GPT) si tu le demandes.
-
-## 5. Lance la mission
-
-Upload le ZIP dans Claude Code, Cursor, Codex ou Hermes. Dis une phrase unique :
-
-> Audit Complet SaaS sur https://app.exemple.tld — je contrôle ce scope. Mode max-frontier.
-
-Remplace l’URL par **ton** scope. L’orchestrateur enchaîne les agents du mode. Le rapport final ne sort que si `qa.passed=true`.
+Remplace l’URL et le chemin. L’orchestrateur pose les questions qui manquent, écrit le brief, enchaîne. Le rapport sort si `qa.passed=true`. Les tickets : `projects/<slug>/livrables/tickets/`.

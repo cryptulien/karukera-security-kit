@@ -2,13 +2,13 @@
 
 ZIP de prompts + configs + templates. **Zéro code obligatoire.** Zéro exploit, zéro payload offensif, zéro PoC d’attaque.
 
-## Arborescence (cible ~95–110 fichiers)
+## Arborescence (cible ~110–125 fichiers)
 
 ```
 START-HERE.md  README.md  USAGE.md  CHANGELOG.md  CONTRAT.md  .env.example
 bin/deposit-openrouter-key.sh  bin/check-openrouter-key.sh
 config/kit.yaml  config/openrouter.json.example  config/models.yaml  config/mission-modes.yaml
-GUIDES/deposit-key.md
+GUIDES/deposit-key.md  GUIDES/postures.md
 RULES/00-openrouter.md … 07-double-qa.md
 SQUAD/00-orchestrator.md + 00-orchestrator.checklist.md … 11-rapport-final.*
 SPECIALISTS/<slug>/<slug>.md + <slug>.checklist.md
@@ -19,14 +19,15 @@ TEMPLATES/  SCHEMAS/  LIVRABLES/  GUIDES/  examples/demo-journal/
 
 ## Règles dures
 
-1. OpenRouter : avant tout agent, clé déposée hors chat (`.env` ou `config/openrouter.json`). L’agent sonde via `bin/check-openrouter-key.sh`. Il ne lit pas les fichiers, ne demande pas la valeur. Absente → STOP + message 30–50 € + `GUIDES/deposit-key.md`.
+1. OpenRouter : avant tout agent, clé déposée hors chat. Raison dite à l’opérateur : beaucoup de modèles (Claude, Codex, etc.) refusent l’audit. L’agent sonde via `bin/check-openrouter-key.sh`. Absente → STOP + message canonique + `GUIDES/deposit-key.md`.
 2. Statuts : Confirmé / Probable / Hypothèse / Non testé / Mitigé / Faux positif.
-3. Confirmé ⇒ preuve (URL + extrait + date).
+3. Confirmé ⇒ preuve (URL ou `path:ligne` + extrait + date).
 4. Score : I, E, C, F, V (1–5). `priority = 10*(0.30I+0.25E+0.20C+0.15V) - 2*F`. Bandes ≥35 P0, 25–34 P1, 15–24 P2, <15 P3. C plafonné par le statut.
 5. Couverture ≠ confiance (deux jauges).
-6. Rapport final bloqué sans `qa.passed=true`.
+6. Rapport final bloqué sans `qa.passed=true`. Tickets de correctif avec prompt ensuite.
 7. Mode 7 red-team : `AUTHORIZED=yes` + `authorization.md` sinon STOP.
 8. Journal append-only. Reprise après coupure via ENGINE/resume.md.
+9. Accueil produit avant les ids de mode : projet, profondeur, approches, accès. Mots de passe hors chat.
 
 ## Contrat d’un agent (frontmatter + sections)
 

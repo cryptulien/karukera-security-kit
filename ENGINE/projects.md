@@ -45,7 +45,9 @@ projects/<slug>/
     audit-strategique.md
     plan-implementation.md
     checklist-actions.md
+    tickets/                # TICKET-NNN.md, prompts à coller
     delta-compare.md        # si mode 5 ou 6
+  accounts.local.md         # mots de passe / sessions — jamais le chat, jamais le journal
 ```
 
 Crée les dossiers vides dès l’ouverture du projet. N’attends pas la fin de mission.
@@ -55,7 +57,7 @@ Crée les dossiers vides dès l’ouverture du projet. N’attends pas la fin de
 1. Vérifie qu’un `projects/<slug>/project.yaml` n’existe pas déjà. Si oui : c’est une **reprise** (`ENGINE/resume.md`) ou un **delta** (mode 5), pas une création.
 2. Crée l’arborescence.
 3. Écris `project.yaml` (champs du schéma, aucun champ fantôme).
-4. Écris `brief.md` : URLs, hôtes, comptes-test, données interdites, plage horaire, interlocuteur.
+4. Écris `brief.md` : URLs, hôtes, `code_path` si approche code, postures, e-mails de test (pas les mots de passe), données interdites, plage horaire, interlocuteur. Mots de passe → `accounts.local.md` seulement.
 5. Copie ou rédige `authorization.md` dès que le client a signé. En mode 7, son absence = STOP.
 6. Première entrée dans `journal/entries/` : ouverture, mode choisi, périmètre recopié.
 

@@ -31,7 +31,7 @@ Exécute `SPECIALISTS/connectors-mesure/connectors-mesure.checklist.md`. Tant qu
    - variable d’environnement déjà exportée dans le shell de l’opérateur
    Absente → STOP. Message exact :
 
-   > Pour un audit de qualité avec des modèles frontier (DeepSeek, GLM, etc.), mets 30 à 50 € de crédits sur OpenRouter. C’est largement suffisant pour 1 à 3 audits complets.
+   > Claude, Codex et d’autres modèles refusent souvent de mener un audit de sécurité. Dépose une clé OpenRouter pour router vers des modèles qui le font. 30 à 50 € de crédits suffisent pour 1 à 3 audits complets.
 
    N’invente pas une clé. Ne demande pas à Karukera de la fournir. Ne l’écris jamais dans le journal ni dans un livrable.
 2. **Fichier de config.** Si `config/openrouter.json` n’existe pas, guide la copie depuis l’exemple. Vérifie que le JSON cite `moonshotai/kimi-k3` et, en budget, `deepseek/deepseek-v4-flash-0731` pour le crawl. Fallback : GLM-5.3 / 5.2, DeepSeek Pro 0813, Qwen3.8 Max, MiniMax M3 — seulement après échec réel, pas par goût.

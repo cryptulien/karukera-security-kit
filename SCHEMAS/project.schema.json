@@ -52,6 +52,14 @@
       "type": "string",
       "description": "Mode d'origine si le mode courant est 05, 06 ou 08."
     },
+    "posture": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": ["exterieur", "code", "interieur"]
+      },
+      "description": "Approches choisies par l'opérateur. Combinables."
+    },
     "addons": {
       "type": "array",
       "items": {
@@ -100,6 +108,10 @@
           "type": "integer",
           "minimum": 0,
           "description": "Comptes d'org réellement utilisables. < 2 ⇒ isolation Non testé."
+        },
+        "code_path": {
+          "type": "string",
+          "description": "Dépôt local si approche code. Vide sinon."
         }
       }
     },

@@ -1,18 +1,21 @@
 # Guide — Missions
 
-Une mission = un mode + un scope + un routage + un journal.
+Une mission = un projet chez toi + une profondeur + une ou plusieurs approches + un journal.
 
-## Avant de parler
+L’opérateur ne récite pas les modes. Il dit le projet, la profondeur, s’il donne des accès. Toi tu maps. Détail : `GUIDES/postures.md`.
 
-1. Règle 00 : clé OpenRouter.
-2. `USAGE.md` : tu as le droit d’auditer cette cible.
-3. Charge `RULES/` 00 → 07.
-4. Fixe `KIT_MODE` (`budget` ou `max-frontier`).
-5. Écris le brief : URL racine, comptes de test, hors-scope, date.
+## Accueil — quatre questions
+
+1. Quel projet, chez lui ? URL et/ou chemin de code.
+2. Quelle profondeur ? express / complet / red-team (mandat).
+3. Quelle approche ? extérieur, code, intérieur — on peut combiner.
+4. Accès utilisateurs ? oui → brief + `accounts.local.md`, jamais le chat. non → tests authentifiés = `Non testé`.
+
+Puis seulement : règle 00 (clé OpenRouter — beaucoup de modèles refusent l’audit), `USAGE.md`, `RULES/`, brief écrit.
 
 Phrase type :
 
-> Audit Complet SaaS sur https://app.exemple.tld — comptes `auditor-a@` et `auditor-b@`, org A et org B. Je contrôle ce scope. Mode max-frontier.
+> Audite ce projet chez moi. URL : https://app.exemple.tld. Code : ./mon-app. Complet. Extérieur + intérieur. Les comptes sont dans le brief, pas ici.
 
 ## Choisir le mode
 
@@ -53,4 +56,5 @@ Pars du journal existant. Interdit d’ajouter une mesure pour « remplir ». La
 ## Fin
 
 `squad-10-adversarial-qa` pose `qa.passed`.  
-`squad-11-rapport-final` n’écrit que si `qa.passed=true`.
+`squad-11-rapport-final` n’écrit que si `qa.passed=true`.  
+Après le rapport : tickets `livrables/tickets/` (`TEMPLATES/fix-ticket.md`) + compagnon d’implémentation. Chaque ticket porte un prompt à coller dans le LLM de correctif.

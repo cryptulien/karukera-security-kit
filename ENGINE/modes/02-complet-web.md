@@ -17,8 +17,9 @@ Pipeline web classique. Un site, une appli rendue serveur ou SPA, éventuellemen
 ## Portails
 
 1. Clé OpenRouter. Sinon STOP.
-2. `brief.md` avec hôtes, hors-scope, plage horaire.
+2. `brief.md` avec hôtes, hors-scope, plage horaire, postures.
 3. Compte-test : recommandé. S’il manque, toute la branche authentifiée reste **Non testé** — tu ne l’inventes pas.
+4. `scope.code_path` présent → `SPECIALISTS/code-source`. Absent → code `Non testé`.
 
 Observation non destructive. Les seuls POST/PUT sont ceux **documentés** dans le brief (login compte-test).
 

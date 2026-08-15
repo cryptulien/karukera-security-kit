@@ -1,5 +1,12 @@
 # Journal des versions
 
+## 1.0.2 — 2026-08-15
+
+- Flux produit : projet chez toi, profondeur, approches extérieur / code / intérieur, accès optionnels, rapports + preuves, tickets avec prompt à coller (`GUIDES/postures.md`, `TEMPLATES/fix-ticket.md`).
+- OpenRouter justifié par le refus fréquent des modèles hôtes (Claude, Codex, etc.), plus seulement par la qualité.
+- Spécialiste `code-source`. Accès utilisateurs hors chat (`TEMPLATES/accounts.local.md`).
+- Orchestrateur : accueil en langue produit, puis mapping vers les modes. 11 écrit les tickets.
+
 ## 1.0.1 — 2026-08-15
 
 - Dépôt de la clé OpenRouter hors LLM : `GUIDES/deposit-key.md`, `bin/deposit-openrouter-key.sh`, sonde `bin/check-openrouter-key.sh`.

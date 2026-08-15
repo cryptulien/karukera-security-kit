@@ -29,6 +29,7 @@ Mode 8 = board uniquement, zéro test. Mode 5/6 = `delta-compare` en plus. Un re
 | Rapport board | `TEMPLATES/report-board.md` | `reports/board.md` | Mode 8 + QA passée |
 | Audit stratégique | `LIVRABLES/audit-strategique.md` (fond) + exec | `livrables/audit-strategique.md` | QA passée, modes 2/3/4/7 |
 | Plan d’implémentation | `LIVRABLES/plan-implementation.md` | `livrables/plan-implementation.md` | QA passée |
+| Tickets + prompts | `TEMPLATES/fix-ticket.md` | `livrables/tickets/TICKET-NNN.md` | QA passée, un par Confirmé / Probable P0–P1 |
 | Checklist | `TEMPLATES/checklist-actions.md` | `livrables/checklist-actions.md` | QA passée |
 | Delta | `TEMPLATES/delta-compare.md` | `livrables/delta-compare.md` | Mode 5 ou 6 |
 | Modèle de menace | `TEMPLATES/threat-model.md` | `journal/threat-model.md` | Après collecte, avant QA |
@@ -47,7 +48,7 @@ Les `.txt` (`llms-security.txt`, `security-robots.txt`) ne sont pas des livrable
 ## Qui lit quoi
 
 - **Founder / CISO** : `audit-strategique.md` + `reports/exec.md`. Décisions, pas la liste des en-têtes.
-- **Équipe qui corrige** : `plan-implementation.md` + `reports/impl.md` + checklist.
+- **Équipe qui corrige** : `livrables/tickets/` (prompt à coller) + `plan-implementation.md` + `reports/impl.md` + checklist.
 - **Board / investisseur** : `reports/board.md` uniquement, mode 8.
 - **Passe suivante** : journal + snapshot + delta. Pas le board.
 

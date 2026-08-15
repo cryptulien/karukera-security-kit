@@ -36,16 +36,18 @@ Exécute `SQUAD/11-rapport-final.checklist.md` avant d’ouvrir le fichier de li
    6. **Surface agentique** : tableau ASI01–ASI10 ou `hors surface`.
    7. **Jauges** : couverture (checklists) et confiance (preuves).
    8. **Méthode et limites** : pas de garantie d’exhaustivité, pas d’exploit, usage autorisé.
-6. **Ton.** Français, factuel, impératif dans le plan (« Isolez le tool `db.query` »). Pas de hype, pas de « 0-day », pas de CVE sans URL déjà validée par 08 et 10.
+   9. **Tickets de correctif** : un fichier par Confirmé / Probable P0–P1 (P2 s’ils sont peu) dans `projects/<slug>/livrables/tickets/`, forme `TEMPLATES/fix-ticket.md`. Chaque ticket porte un **prompt à coller** dans le LLM de correctif. Pas de payload dans le prompt.
+6. **Ton.** Français, factuel, impératif dans le plan (« Isolez le tool `db.query` »). Langage produit : rapports + preuves + tickets. Pas de hype, pas de « 0-day », pas de CVE sans URL déjà validée par 08 et 10.
 7. **Masquage.** Jetons, secrets, e-mails réels : `***`. Les comptes de test peuvent être nommés comme tels.
 8. **Interdits de rédaction.** Ajouter un finding. Rehausser une bande. Coller un payload. Inventer un témoignage. Omettre les `Non testé` gênants.
 
 ## Sorties
 
-`LIVRABLES/rapport` (markdown) + copie d’index dans `journal/rapport` :
+`projects/<slug>/reports/` + `livrables/tickets/` + copie d’index dans `journal/rapport` :
 
 ```yaml
 report_written: true
+tickets_written: 0
 qa_signature:
 scope:
 counts: { P0: 0, P1: 0, P2: 0, P3: 0, hypothese: 0, non_teste: 0, faux_positif: 0 }
@@ -71,6 +73,7 @@ reason: "qa.passed n’est pas true"
 - Promettre que « le site est sûr ».
 - Recopier l’exemple fictif d’un agent dans le livrable réel.
 - Laisser un secret non masqué.
+- Livrer le rapport sans tickets / sans prompt de correctif.
 
 ## Exemple de finding fictif
 

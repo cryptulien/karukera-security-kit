@@ -22,6 +22,7 @@ N’ouvre pas ce mode pour un SaaS multi-tenant, un produit MCP, ou un rapport b
 1. Clé OpenRouter présente. Sinon STOP.
 2. Périmètre écrit (`brief.md` ou `project.yaml`). Sinon STOP.
 3. Usage autorisé (`USAGE.md`) : système que l’humain contrôle.
+4. `scope.code_path` présent → `SPECIALISTS/code-source` après la surface. Absent → code `Non testé`.
 
 Pas de `AUTHORIZED=yes` au sens du mode 7 : tu restes en **observation** (`GET`/`HEAD`/`OPTIONS` lecture).
 

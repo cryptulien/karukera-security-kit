@@ -6,7 +6,7 @@ Chaque finding porte une chaîne. Pas de chaîne → pas de `Confirmé`.
 
 | Champ | Règle |
 | --- | --- |
-| surface | URL, route API, tool MCP, en-tête ou fichier — assez pour retrouver le point |
+| surface | URL, `path:ligne`, route API, tool MCP, en-tête ou fichier — assez pour retrouver le point |
 | extrait | citation courte, telle qu’observée, bornée, sans secret entier |
 | date | date-heure ISO de l’observation (`2026-08-15T14:32:00Z`) |
 | méthode | ce que tu as fait (lecture de réponse, comparaison de deux comptes, revue de schéma) |

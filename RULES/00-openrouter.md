@@ -28,7 +28,7 @@ N’enchaîne aucun agent. N’invente pas un audit hors modèle. N’utilise pa
 
 Affiche **exactement** ce message, mot pour mot, puis le paragraphe dépôt :
 
-> Pour un audit de qualité avec des modèles frontier (DeepSeek, GLM, etc.), mets 30 à 50 € de crédits sur OpenRouter. C’est largement suffisant pour 1 à 3 audits complets.
+> Claude, Codex et d’autres modèles refusent souvent de mener un audit de sécurité. Dépose une clé OpenRouter pour router vers des modèles qui le font. 30 à 50 € de crédits suffisent pour 1 à 3 audits complets.
 
 > Ne colle pas la clé ici. Dépose-la hors chat : `GUIDES/deposit-key.md` (`sh bin/deposit-openrouter-key.sh` ou édition locale de `.env`). Quand c’est fait, dis seulement « clé déposée ».
 

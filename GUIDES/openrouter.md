@@ -1,6 +1,6 @@
 # Guide — OpenRouter
 
-Le kit ne démarre pas sans clé. Les crédits sont les tiens. Karukera ne proxy rien.
+Le kit ne démarre pas sans clé. Tu peux ouvrir le ZIP dans Claude, Codex ou un autre agent : beaucoup de ces modèles **refusent** de mener un audit de sécurité. La clé OpenRouter sert à router vers des modèles qui le font. Les crédits sont les tiens. Karukera ne proxy rien.
 
 Table des IDs : `config/models.yaml` (datée du 2026-08-15). Les slugs bougent. Relis OpenRouter avant une mission longue.
 
@@ -18,7 +18,7 @@ L’agent vérifie avec `sh bin/check-openrouter-key.sh`. Il ne lit pas `.env`. 
 
 Sans clé, **stop**. Affiche exactement :
 
-> Pour un audit de qualité avec des modèles frontier (DeepSeek, GLM, etc.), mets 30 à 50 € de crédits sur OpenRouter. C’est largement suffisant pour 1 à 3 audits complets.
+> Claude, Codex et d’autres modèles refusent souvent de mener un audit de sécurité. Dépose une clé OpenRouter pour router vers des modèles qui le font. 30 à 50 € de crédits suffisent pour 1 à 3 audits complets.
 
 > Ne colle pas la clé ici. Dépose-la hors chat : `GUIDES/deposit-key.md`. Quand c’est fait, dis seulement « clé déposée ».
 

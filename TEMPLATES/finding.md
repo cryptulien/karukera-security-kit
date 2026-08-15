@@ -25,7 +25,7 @@ notes: ""
 - `title` : une ligne, fait observable, pas un nom de CVE inventé.
 - `status` : `Confirmé` | `Probable` | `Hypothèse` | `Non testé` | `Mitigé` | `Faux positif`.
 - `fictif` : `true` si exemple de kit ou hors cible réelle.
-- `asset` : URL ou surface (hôte + chemin, cookie, tool MCP).
+- `asset` : URL, `path:ligne`, ou surface (hôte + chemin, cookie, tool MCP).
 - `impact` (I), `exploitability` (E), `confidence` (C), `fix_effort` (F), `visibility` (V) : entiers 1–5. C plafonné par le statut.
 - `priority` : `10*(0.30*I + 0.25*E + 0.20*C + 0.15*V) - 2*F`, un décimal.
 - `band` : `P0` | `P1` | `P2` | `P3`.
@@ -46,7 +46,7 @@ Tableau ou liste : id, URL, date, extrait déjà stocké dans `journal/evidence/
 
 ## Remédiation
 
-Action vérifiable (poser une CSP, cacher la stack, refuser l’objet d’un autre tenant). Effort cohérent avec F. Critère de sortie : ce que le mode 5 re-GET pour passer à Mitigé.
+Action vérifiable (poser une CSP, cacher la stack, refuser l’objet d’un autre tenant). Effort cohérent avec F. Critère de sortie : ce que le mode 5 re-GET (ou relit) pour passer à Mitigé. Le ticket `livrables/tickets/` reprend cette action dans un prompt à coller — sans payload.
 
 ## Limites
 

@@ -10,7 +10,7 @@ forbids: [inventer un finding, produire un exploit, écrire un PoC offensif, mod
 
 ## Mission
 
-Transforme un rapport (journal + livrable) en **plan de correctifs découpé en PR**. Chaque item a une taille de pull request, un guidage de correctif, un critère d’acceptation défensif. Tu ne trouves pas de nouvelles failles. Tu n’écris pas d’exploit.
+Transforme un rapport (journal + livrable) en **tickets + plan de correctifs découpé en PR**. Chaque ticket a un prompt prêt à coller dans le LLM de correctif. Chaque PR a une taille, un guidage défensif, un critère d’acceptation. Tu ne trouves pas de nouvelles failles. Tu n’écris pas d’exploit.
 
 ## Quand l’appeler
 
@@ -25,7 +25,7 @@ Exécute `SPECIALISTS/implementation-companion/implementation-companion.checklis
 
 ## Méthode
 
-1. **Stop OpenRouter.** Clé absente → STOP + message 30–50 €.
+1. **Stop OpenRouter.** `sh bin/check-openrouter-key.sh`. Absente → STOP + message canonique + `GUIDES/deposit-key.md`.
 2. **Ingest seulement.** Lis journal + rapport. Ignore les `Faux positif`. Traite `Mitigé` comme déjà fait (une ligne « ne pas rouvrir »). `Hypothèse` et `Non testé` : pas de PR, une file « à mesurer » renvoyée vers Delta / le spécialiste idoine.
 3. **Ne recrée pas le score.** Reprends I, E, C, F, V et `priority` déjà calculés. Si un finding n’a pas de score, calcule-le une fois avec `priority = 10*(0.30I+0.25E+0.20C+0.15V) - 2*F` et documente le calcul. Ne change pas un score déjà posé pour « faire passer en P0 ».
 4. **Bandes.** ≥35 P0, 25–34 P1, 15–24 P2, <15 P3. Un P0 = première vague, une PR (ou un train court de PRs bloquantes) avant le reste.
@@ -43,7 +43,9 @@ Modèles : rédaction / priorisation, modèle prudent accepté. Analyse de déco
 
 ## Sorties
 
-`LIVRABLES/plan-correctifs.md` + une fiche par PR dans `LIVRABLES/prs/` :
+`projects/<slug>/livrables/plan-implementation.md` + tickets `livrables/tickets/` (`TEMPLATES/fix-ticket.md`) + une fiche par PR dans `livrables/prs/` :
+
+Si 11 a déjà écrit les tickets, tu les enrichis (prompt, critère, owner). Tu n’en recrées pas des doublons. Tu n’ajoutes pas de payload dans le prompt.
 
 ```yaml
 id: FIX-012

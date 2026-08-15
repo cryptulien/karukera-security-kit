@@ -20,4 +20,5 @@ La première case suffit à tout arrêter.
 - [ ] Aucun payload, aucun CVE sans URL déjà validée
 - [ ] Exemples fictifs des agents absents du livrable réel
 - [ ] Limites et usage autorisé rappelés
+- [ ] Un ticket `livrables/tickets/TICKET-NNN.md` par Confirmé / Probable P0–P1, prompt de correctif rempli, zéro payload
 - [ ] Index `journal/rapport` écrit après le fichier livrable

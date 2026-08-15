@@ -6,7 +6,7 @@ Un transcript, un log provider, une compaction ou un `Read` sur `.env` exposent 
 
 ## Ce que tu fais toi, dans un terminal ou un éditeur
 
-1. Crée la clé sur https://openrouter.ai/keys
+1. Crée la clé sur https://openrouter.ai/keys — Claude, Codex et d’autres refusent souvent l’audit ; OpenRouter route vers des modèles qui l’acceptent
 2. Charge 30 à 50 € de crédits (1 à 3 audits complets en mode `budget`)
 3. Dépose-la **localement** avec A ou B
 4. Reviens dans le chat et dis seulement : `clé déposée`

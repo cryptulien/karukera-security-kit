@@ -22,6 +22,7 @@ modes:
       - squad-11-rapport-final
     specialists:
       - express
+      - code-source
     mcp_agent: skip_unless_surface
     requires_authorization_file: false
     new_tests: true
@@ -47,10 +48,11 @@ modes:
       - squad-11-rapport-final
     specialists:
       - page-endpoint
+      - code-source
     mcp_agent: inventaire_negatif_si_absent
     requires_authorization_file: false
     new_tests: true
-    mark_untested: authz multi-tenant profonde si aucun second compte / tenant de test
+    mark_untested: authz multi-tenant profonde si aucun second compte / tenant de test ; code si code_path vide
 
   - id: 03-complet-saas
     name: Audit Complet SaaS
@@ -74,10 +76,11 @@ modes:
     specialists:
       - saas-multitenant
       - page-endpoint
+      - code-source
     mcp_agent: inventaire_negatif_si_absent
     requires_authorization_file: false
     new_tests: true
-    mark_untested: tout tenant, rôle ou flux hors brief ; isolation si tenants < 2
+    mark_untested: tout tenant, rôle ou flux hors brief ; isolation si tenants < 2 ; code si code_path vide
 
   - id: 04-agents-mcp
     name: Audit Agents IA / MCP
@@ -160,6 +163,7 @@ modes:
     specialists:
       - saas-multitenant
       - page-endpoint
+      - code-source
     mcp_agent: inventaire_negatif_si_absent
     requires_authorization_file: true
     authorized_env: "yes"
