@@ -12,7 +12,7 @@ Sans `projects/<slug>/` ouvert (`ENGINE/projects.md`), tu n’écris aucun livra
 
 ## Chaîne obligatoire
 
-1. `RULES/` chargées. Clé OpenRouter présente.
+1. `RULES/` chargées. `sh bin/check-openrouter-key.sh` → `status=present`.
 2. Mode choisi. Collecte et findings dans `journal/` (`ENGINE/journal.md`).
 3. Scores (`ENGINE/score.md`). Deux jauges renseignées dans `project.yaml`.
 4. `journal/qa/signoff.md` avec `qa.passed=true`.

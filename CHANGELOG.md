@@ -1,5 +1,10 @@
 # Journal des versions
 
+## 1.0.1 — 2026-08-15
+
+- Dépôt de la clé OpenRouter hors LLM : `GUIDES/deposit-key.md`, `bin/deposit-openrouter-key.sh`, sonde `bin/check-openrouter-key.sh`.
+- Règle 00 : l’agent ne demande plus la clé, ne lit plus `.env`, refuse d’écrire une clé collée dans le chat.
+
 ## 1.0.0 — 2026-08-15
 
 Première publication du ZIP public Karukera Security Kit.

@@ -6,7 +6,9 @@ ZIP de prompts + configs + templates. **Zéro code obligatoire.** Zéro exploit,
 
 ```
 START-HERE.md  README.md  USAGE.md  CHANGELOG.md  CONTRAT.md  .env.example
+bin/deposit-openrouter-key.sh  bin/check-openrouter-key.sh
 config/kit.yaml  config/openrouter.json.example  config/models.yaml  config/mission-modes.yaml
+GUIDES/deposit-key.md
 RULES/00-openrouter.md … 07-double-qa.md
 SQUAD/00-orchestrator.md + 00-orchestrator.checklist.md … 11-rapport-final.*
 SPECIALISTS/<slug>/<slug>.md + <slug>.checklist.md
@@ -17,7 +19,7 @@ TEMPLATES/  SCHEMAS/  LIVRABLES/  GUIDES/  examples/demo-journal/
 
 ## Règles dures
 
-1. OpenRouter : avant tout agent, clé dans `.env` ou `config/openrouter.json`. Absente → STOP + message 30–50 €.
+1. OpenRouter : avant tout agent, clé déposée hors chat (`.env` ou `config/openrouter.json`). L’agent sonde via `bin/check-openrouter-key.sh`. Il ne lit pas les fichiers, ne demande pas la valeur. Absente → STOP + message 30–50 € + `GUIDES/deposit-key.md`.
 2. Statuts : Confirmé / Probable / Hypothèse / Non testé / Mitigé / Faux positif.
 3. Confirmé ⇒ preuve (URL + extrait + date).
 4. Score : I, E, C, F, V (1–5). `priority = 10*(0.30I+0.25E+0.20C+0.15V) - 2*F`. Bandes ≥35 P0, 25–34 P1, 15–24 P2, <15 P3. C plafonné par le statut.

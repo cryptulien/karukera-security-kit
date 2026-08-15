@@ -36,9 +36,11 @@ Le mode 7 reste sans exploit. Il pousse la contradiction et la chasse aux angles
 
 ## Crédits modèles
 
-Tes crédits OpenRouter restent les tiens. Sans clé : **stop** et ce message exact :
+Tes crédits OpenRouter restent les tiens. Dépose la clé hors chat (`GUIDES/deposit-key.md`). Sans clé : **stop** et ces deux paragraphes :
 
 > Pour un audit de qualité avec des modèles frontier (DeepSeek, GLM, etc.), mets 30 à 50 € de crédits sur OpenRouter. C’est largement suffisant pour 1 à 3 audits complets.
+
+> Ne colle pas la clé ici. Dépose-la hors chat : `GUIDES/deposit-key.md`. Quand c’est fait, dis seulement « clé déposée ».
 
 ## Pas de garantie
 

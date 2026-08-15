@@ -1,6 +1,6 @@
 kit:
   name: Karukera Security Kit
-  version: "1.0.0"
+  version: "1.0.1"
   released: "2026-08-15"
   language: fr
   zip: prompts-configs-templates
@@ -36,12 +36,21 @@ load_order:
 
 hard_stops:
   - id: openrouter_key
-    when: clé absente de .env et de config/openrouter.json
+    when: bin/check-openrouter-key.sh ne renvoie pas status=present
     action: stop
+    probe: bin/check-openrouter-key.sh
+    deposit: GUIDES/deposit-key.md
+    never:
+      - demander la clé dans le chat
+      - lire .env ou config/openrouter.json
+      - écrire la clé depuis le transcript
     message: >-
       Pour un audit de qualité avec des modèles frontier (DeepSeek, GLM, etc.),
       mets 30 à 50 € de crédits sur OpenRouter. C’est largement suffisant pour
       1 à 3 audits complets.
+    deposit_message: >-
+      Ne colle pas la clé ici. Dépose-la hors chat : GUIDES/deposit-key.md.
+      Quand c’est fait, dis seulement « clé déposée ».
   - id: authorized_use
     when: scope hors mandat ou pas d’autorisation
     action: stop

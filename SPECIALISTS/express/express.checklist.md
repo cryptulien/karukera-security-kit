@@ -20,7 +20,7 @@ Dès que le spécialiste Express démarre. Ne commence aucune collecte avant la 
 
 ### Stop
 
-- [ ] Clé OpenRouter présente dans `.env` ou `config/openrouter.json`. Sinon STOP + message 30–50 €.
+- [ ] `sh bin/check-openrouter-key.sh` → `status=present`. Sinon STOP + message 30–50 € + `GUIDES/deposit-key.md`. Pas de Read sur `.env`.
 - [ ] Brief lu : cible, autorisation, hors-scope. Sinon STOP.
 - [ ] Heure de début notée. Plafond 45 min rappelé à voix haute / dans le journal.
 

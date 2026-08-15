@@ -8,7 +8,7 @@ La mission a été interrompue (contexte plein, crash, humain parti, clé OpenRo
 
 Avant toute collecte ou finding :
 
-1. Vérifie la clé OpenRouter (`RULES/00-openrouter.md`). Absente → STOP, message 30–50 €. La coupure n’autorise pas un audit « de mémoire ».
+1. Vérifie la clé OpenRouter avec `sh bin/check-openrouter-key.sh` (`RULES/00-openrouter.md`). N’ouvre pas `.env`. Absente → STOP, message 30–50 € + `GUIDES/deposit-key.md`. La coupure n’autorise pas un audit « de mémoire ».
 2. Lis `projects/<slug>/project.yaml`. Pas de fichier → ce n’est pas une reprise, c’est une ouverture (`ENGINE/projects.md`).
 3. Lis les **20 dernières** entrées de `journal/entries/` (ordre lexicographique = ordre temporel si le nommage est respecté). S’il y en a moins, lis-les toutes.
 4. Lis `journal/qa/signoff.md` s’il existe.

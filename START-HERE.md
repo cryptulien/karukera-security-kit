@@ -2,23 +2,25 @@
 
 Cinq minutes. Dans cet ordre. N’enchaîne rien tant que l’étape 1 n’est pas verte.
 
-## 1. OpenRouter d’abord
+## 1. OpenRouter d’abord — hors chat
 
-Copie `.env.example` vers `.env`. Mets une clé OpenRouter dans `.env` :
+Crée la clé sur https://openrouter.ai/keys. Charge 30 à 50 €. Dépose-la **toi-même**, dans un terminal ou un éditeur, **jamais dans le chat** :
 
+```sh
+sh bin/deposit-openrouter-key.sh
 ```
-OPENROUTER_API_KEY=sk-or-v1-…
-```
 
-Ou dans `config/openrouter.json` (copie `config/openrouter.json.example`).
+Procédure complète (éditeur, Windows, révocation) : `GUIDES/deposit-key.md`.
 
-**Sans clé → arrête-toi.** Demande-la à l’utilisateur. N’enchaîne aucun agent. N’invente pas un audit local.
+**Sans clé → arrête-toi.** Ne demande pas la valeur. Ne lis pas `.env`. Lance `sh bin/check-openrouter-key.sh`. N’enchaîne aucun agent. N’invente pas un audit local.
 
 Message à afficher si la clé manque :
 
 > Pour un audit de qualité avec des modèles frontier (DeepSeek, GLM, etc.), mets 30 à 50 € de crédits sur OpenRouter. C’est largement suffisant pour 1 à 3 audits complets.
 
-Crée la clé sur https://openrouter.ai/keys. Charge 30 à 50 €. Détail : `GUIDES/openrouter.md`.
+> Ne colle pas la clé ici. Dépose-la hors chat : `GUIDES/deposit-key.md`. Quand c’est fait, dis seulement « clé déposée ».
+
+Routage et modèles : `GUIDES/openrouter.md`.
 
 ## 2. Usage autorisé uniquement
 

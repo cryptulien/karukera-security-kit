@@ -4,8 +4,9 @@ Coche uniquement ce que tu as réellement vérifié. Un item non fait reste déc
 
 - [ ] `RULES/00-openrouter.md` lu avant tout autre fichier agent
 - [ ] Ensemble de `RULES/` chargé (anti-invention, chaîne de preuve, six statuts, double QA)
-- [ ] Clé OpenRouter présente et non placeholder dans `.env` ou `config/openrouter.json`
-- [ ] Message 30–50 € affiché et mission stoppée si la clé manque
+- [ ] `sh bin/check-openrouter-key.sh` → `status=present` (jamais de Read sur `.env` / `config/openrouter.json`)
+- [ ] Clé jamais demandée ni recopiée dans le chat ; dépôt pointé vers `GUIDES/deposit-key.md`
+- [ ] Message 30–50 € + consignes de dépôt hors chat affichés, mission stoppée si la clé manque
 - [ ] Brief lu : URL cible, comptes de test, hors-scope, mode
 - [ ] Autorisation écrite présente ; mode 7 : `AUTHORIZED=yes` **et** `authorization.md`
 - [ ] Mode chargé depuis `ENGINE/modes/` ; pipeline rappelé à l’opérateur

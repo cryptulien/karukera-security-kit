@@ -4,17 +4,23 @@ Le kit ne démarre pas sans clé. Les crédits sont les tiens. Karukera ne proxy
 
 Table des IDs : `config/models.yaml` (datée du 2026-08-15). Les slugs bougent. Relis OpenRouter avant une mission longue.
 
-## Créer la clé
+## Créer et déposer la clé (hors chat)
+
+La clé ne passe **jamais** par le LLM. Procédure : `GUIDES/deposit-key.md`.
 
 1. Compte sur https://openrouter.ai
 2. Clé sur https://openrouter.ai/keys
-3. Copie `.env.example` vers `.env`
-4. Colle la clé dans `OPENROUTER_API_KEY`
-5. Variante fichier : copie `config/openrouter.json.example` vers `config/openrouter.json` et remplis `api_key`
+3. Dans un terminal local : `sh bin/deposit-openrouter-key.sh`
+4. Ou édite `.env` / `config/openrouter.json` dans ton éditeur, pas dans le chat
+5. Dis à l’agent `clé déposée` — ne recopie pas la valeur
+
+L’agent vérifie avec `sh bin/check-openrouter-key.sh`. Il ne lit pas `.env`. Il ne demande pas la clé.
 
 Sans clé, **stop**. Affiche exactement :
 
 > Pour un audit de qualité avec des modèles frontier (DeepSeek, GLM, etc.), mets 30 à 50 € de crédits sur OpenRouter. C’est largement suffisant pour 1 à 3 audits complets.
+
+> Ne colle pas la clé ici. Dépose-la hors chat : `GUIDES/deposit-key.md`. Quand c’est fait, dis seulement « clé déposée ».
 
 ## Crédits
 
@@ -53,6 +59,6 @@ Règle de fond :
 Endpoint : `https://openrouter.ai/api/v1`.  
 En-têtes recommandés : `HTTP-Referer: https://karukera.xyz`, `X-Title: Karukera Security Kit`.
 
-401 / clé vide / clé révoquée → même stop, même message qu’en tête de guide.
+401 / clé vide / clé révoquée → même stop, même message qu’en tête de guide, puis redépôt hors chat (`GUIDES/deposit-key.md`).
 
-Ne commite jamais `.env` ni `config/openrouter.json`.
+Ne commite jamais `.env` ni `config/openrouter.json`. Ne les ouvre jamais depuis un agent.

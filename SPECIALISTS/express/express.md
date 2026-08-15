@@ -26,7 +26,7 @@ Exécute `SPECIALISTS/express/express.checklist.md` dans l’ordre. Coche chaque
 
 ## Méthode
 
-1. **Stop OpenRouter.** Avant toute requête, vérifie une clé dans `.env` (`OPENROUTER_API_KEY`) ou `config/openrouter.json`. Absente → STOP. Affiche le message 30–50 €. N’invente aucun constat.
+1. **Stop OpenRouter.** Avant toute requête, `sh bin/check-openrouter-key.sh`. N’ouvre pas `.env`. Absente → STOP. Affiche le message 30–50 € + `GUIDES/deposit-key.md`. N’invente aucun constat.
 2. **Autorisation.** Vérifie que le brief nomme un scope contrôlé et une autorisation. Hors scope → STOP. Relis `USAGE.md`.
 3. **Timebox.** Note l’heure de début. 30 min plancher, 45 min plafond. À 40 min, arrête la collecte et rédige. Ne « finis juste un truc ».
 4. **Périmètre Express uniquement.** Trois familles, rien d’autre :

@@ -8,7 +8,7 @@ Commence par `START-HERE.md`.
 
 ## Ce que le kit impose
 
-1. OpenRouter avant tout agent. Clé absente → **stop** + message 30–50 €.
+1. OpenRouter avant tout agent. Clé déposée hors chat (`GUIDES/deposit-key.md`). Absente → **stop** + message 30–50 €. Jamais dans le fil LLM.
 2. Six statuts de mesure. Confirmé exige une preuve (URL + extrait + date).
 3. Score à cinq dimensions. Formule et bandes P0–P3 dans `RULES/05-scoring.md`.
 4. Couverture ≠ confiance. Deux jauges, jamais fusionnées.
@@ -26,13 +26,14 @@ USAGE.md
 CHANGELOG.md
 CONTRAT.md
 .env.example
+bin/              ← dépôt et sonde de clé, hors chat
 config/
   kit.yaml
   openrouter.json.example
   models.yaml
   mission-modes.yaml
 RULES/            ← charge 00 → 07 avant tout agent
-GUIDES/           ← OpenRouter, missions, scoring, usage autorisé
+GUIDES/           ← dépôt de clé, OpenRouter, missions, scoring, usage autorisé
 SQUAD/            ← orchestrateur + agents de mission
 SPECIALISTS/      ← expertises ciblées
 ENGINE/           ← collecte, score, journal, reprise, modes

@@ -21,9 +21,10 @@ Exécute `SQUAD/00-orchestrator.checklist.md` avant le premier agent métier et 
 ## Méthode
 
 1. **Charge `RULES/` en premier.** Ordre imposé : `00-openrouter` → `01-anti-invention` → `02-evidence-chain` → `03-measurement-status` → les autres fichiers `RULES/` présents. N’enchaîne aucun agent métier tant que ces règles ne sont pas en mémoire.
-2. **Gate OpenRouter.** Vérifie une clé valide dans `.env` (`OPENROUTER_API_KEY`) ou `config/openrouter.json`. Absente, vide, placeholder (`changeme`, `sk-or-…` tronquée) → **STOP**. Affiche exactement :
+2. **Gate OpenRouter.** Lance `sh bin/check-openrouter-key.sh`. N’ouvre pas `.env` ni `config/openrouter.json`. Ne demande jamais la clé dans le chat. `status` autre que `present` → **STOP**. Affiche exactement :
    > Pour un audit de qualité avec des modèles frontier (DeepSeek, GLM, etc.), mets 30 à 50 € de crédits sur OpenRouter. C’est largement suffisant pour 1 à 3 audits complets.
-   N’invente pas un audit local. N’appelle pas un autre fournisseur pour contourner.
+   > Ne colle pas la clé ici. Dépose-la hors chat : `GUIDES/deposit-key.md`. Quand c’est fait, dis seulement « clé déposée ».
+   Si l’opérateur colle une clé : refuse de l’écrire, demande révocation + redépôt local. N’invente pas un audit local. N’appelle pas un autre fournisseur pour contourner.
 3. **Autorisation et scope.** Lis le brief. Confirme que la cible est dans le périmètre autorisé. Mode 7 (red-team) : exige `AUTHORIZED=yes` **et** un fichier `authorization.md` signé. Manque → **STOP**. Les autres modes exigent au minimum un scope écrit (URL, compte de test, hors-scope).
 4. **Mode et pipeline.** Charge `ENGINE/modes/` pour le mode choisi. Ordre canonique, non négociable :
    `01-surface-mapper` → `02-threat-modeling` → `03-audit-onpage` → `04-auth-session` → `05-authz-privilege` → `06-api-backend` → `07-config-secrets` → `08-supply-chain` → `09-agent-mcp-skills` → `10-adversarial-qa` → `11-rapport-final`.
@@ -63,6 +64,7 @@ Le champ `report_allowed` reste `false` jusqu’à `qa.passed=true`.
 ## Pièges
 
 - Lancer 01 « pour avancer » sans clé OpenRouter.
+- Demander la clé dans le chat ou lire `.env` au lieu de `bin/check-openrouter-key.sh`.
 - Traiter 09 comme optionnel silencieux : l’absence de surface se journalise.
 - Appeler 11 parce que le client « a besoin du PDF ce soir ».
 - Corriger un Confirmé sans preuve au lieu de le renvoyer à l’agent source.
