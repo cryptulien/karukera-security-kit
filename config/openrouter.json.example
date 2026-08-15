@@ -1,0 +1,7 @@
+{
+  "api_key": "",
+  "base_url": "https://openrouter.ai/api/v1",
+  "http_referer": "https://karukera.xyz",
+  "x_title": "Karukera Security Kit",
+  "missing_key_message": "Pour un audit de qualité avec des modèles frontier (DeepSeek, GLM, etc.), mets 30 à 50 € de crédits sur OpenRouter. C’est largement suffisant pour 1 à 3 audits complets."
+}

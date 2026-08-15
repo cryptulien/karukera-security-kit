@@ -1,0 +1,27 @@
+# security-robots.txt
+# Publier à https://<origin>/security-robots.txt
+# Syntaxe proche de robots.txt, lue par un scanner / agent autorisé.
+# Commentaires en français. Directives en anglais.
+# Ce fichier ne remplace pas authorization.md pour le mode 7.
+
+# Agent générique du kit (observation)
+User-agent: *
+Allow: /
+# Zones à ne pas crawler même en observation (admin, exports, fichiers usagers)
+Disallow: /admin
+Disallow: /internal
+Disallow: /exports
+Disallow: /media/private
+# Espace de 2 secondes entre requêtes sur cet hôte
+Crawl-delay: 2
+
+# Un agent nommé, si tu en émets un
+# User-agent: KarukeraAudit
+# Allow: /
+# Crawl-delay: 2
+
+# Contact (doit matcher llms-security.txt / security.txt)
+# Contact: mailto:security@example.com
+
+# Les sitemaps aident la collecte bornée ; ils ne l’autorisent pas hors brief
+# Sitemap: https://example.com/sitemap.xml

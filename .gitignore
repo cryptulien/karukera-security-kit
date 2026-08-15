@@ -1,0 +1,28 @@
+# Secrets
+.env
+.env.*
+!.env.example
+config/openrouter.json
+
+# Missions (preuves, comptes-test, rapports client)
+projects/
+journal/
+reports/
+livrables/
+snapshots/
+authorization.md
+brief.md
+
+# OS / éditeurs
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+*.swp
+*~
+
+# Python / node si quelqu’un en ajoute
+__pycache__/
+*.pyc
+.venv/
+node_modules/

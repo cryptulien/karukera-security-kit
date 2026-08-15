@@ -1,0 +1,78 @@
+# Routage au 2026-08-15. Relis OpenRouter avant une mission longue.
+# Premier choix : Kimi K3 (moonshotai/kimi-k3) — listé, agentic, 1M ctx.
+# Crawl volume (budget) : DeepSeek V4 Flash 0731.
+# Repli cyber : GLM-5.3 (si listé) puis GLM-5.2.
+# Rédaction prudente : Claude Sonnet 5 / Fable 5 / GPT-5.6 Sol si demandé.
+
+as_of: "2026-08-15"
+
+prefer: moonshotai/kimi-k3
+
+default_mode: budget
+
+budget:
+  deep: deepseek/deepseek-v4-flash-0731
+  reason: moonshotai/kimi-k3
+  write: moonshotai/kimi-k3
+
+max_frontier:
+  deep: moonshotai/kimi-k3
+  reason: moonshotai/kimi-k3
+  write: anthropic/claude-sonnet-5
+
+write_optional:
+  - anthropic/claude-sonnet-5
+  - anthropic/claude-fable-5
+  - openai/gpt-5.6-sol
+
+fallback:
+  - z-ai/glm-5.3
+  - z-ai/glm-5.2
+  - deepseek/deepseek-v4-pro-0813
+  - qwen/qwen3.8-max
+  - minimax/minimax-m3
+
+# Ne pas utiliser (snapshots périmés au 15 août 2026) :
+# moonshotai/kimi-k2.5              → K3
+# deepseek/deepseek-v4-flash        → avril (0423)
+# deepseek/deepseek-v4-pro          → pré-GA
+# minimax/minimax-m2.5              → M3
+# anthropic/claude-sonnet-4.6       → Sonnet 5 / Fable 5
+# openai/gpt-5.2                    → GPT-5.6 Sol
+
+roles:
+  deep:
+    use_for:
+      - analyse de surface
+      - lecture de réponses HTTP / HTML / JS / API
+      - chaînes d’authn / authz
+      - MCP / tools
+    never: [écrire le rapport board, signer la QA]
+  reason:
+    use_for:
+      - déduction
+      - classement de statuts
+      - calcul de score
+      - détection de contradiction
+      - revue cyber (Kimi K3 en premier)
+  write:
+    use_for:
+      - rédaction du livrable
+      - priorisation P0–P3
+      - synthèse board
+      - signature QA
+
+routing_rules:
+  - Premier modèle : moonshotai/kimi-k3. Il est sur OpenRouter. Pas de gate 404.
+  - Si KIT_MODE=budget, crawl / surface → budget.deep (Flash 0731). Raisonnement, statuts, MCP, authz → Kimi K3.
+  - Si KIT_MODE=max-frontier, analyse et raisonnement → Kimi K3.
+  - Agents 03–09 et spécialiste saas-multitenant : reason = Kimi K3.
+  - Si l’utilisateur demande une rédaction prudente, bascule write vers write_optional[0], puis [1], puis [2].
+  - Si K3 refuse, sature ou renvoie une erreur d’auth, bascule vers fallback dans l’ordre (GLM-5.3 s’il est listé, sinon 5.2, puis DeepSeek Pro 0813).
+  - Un modèle fort en découverte n’autorise pas d’écrire un exploit, un payload ou une chaîne d’exploitation. USAGE.md prime.
+  - Ne descends jamais en local inventé : sans clé OpenRouter, stop (RULES/00-openrouter.md).
+
+credits:
+  recommended_eur_min: 30
+  recommended_eur_max: 50
+  covers: 1 à 3 audits complets en budget ; moins en max-frontier (K3 est cher à l’output)

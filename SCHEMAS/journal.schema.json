@@ -1,0 +1,128 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://karukera.xyz/kit/schemas/journal.schema.json",
+  "title": "Karukera journal index",
+  "description": "Index machine optionnel (journal.json). Les fichiers Markdown restent la source de vérité. Append-only sur entries et evidence.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["project_id", "append_only", "entries", "findings_index", "evidence_index"],
+  "properties": {
+    "project_id": {
+      "type": "string",
+      "pattern": "^prj-[a-z0-9-]+$"
+    },
+    "append_only": {
+      "type": "boolean",
+      "const": true
+    },
+    "generated_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "entries": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["id", "ts", "agent", "action", "file"],
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^J-[0-9]{8}-[0-9]{3}$"
+          },
+          "ts": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "agent": {
+            "type": "string"
+          },
+          "action": {
+            "type": "string",
+            "enum": [
+              "open",
+              "collect",
+              "find",
+              "score",
+              "status-change",
+              "qa",
+              "report",
+              "resume",
+              "snapshot",
+              "close",
+              "note"
+            ]
+          },
+          "mode": {
+            "type": "string"
+          },
+          "file": {
+            "type": "string"
+          },
+          "alerte": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "findings_index": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["id", "file", "status"],
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^F-[0-9]{3}$"
+          },
+          "file": {
+            "type": "string"
+          },
+          "status": {
+            "type": "string",
+            "enum": [
+              "Confirmé",
+              "Probable",
+              "Hypothèse",
+              "Non testé",
+              "Mitigé",
+              "Faux positif"
+            ]
+          },
+          "band": {
+            "type": "string",
+            "enum": ["P0", "P1", "P2", "P3"]
+          },
+          "priority": {
+            "type": "number"
+          }
+        }
+      }
+    },
+    "evidence_index": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["id", "file", "date"],
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^E-[0-9]{3}$"
+          },
+          "file": {
+            "type": "string"
+          },
+          "date": {
+            "type": "string",
+            "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}$"
+          },
+          "url": {
+            "type": "string"
+          }
+        }
+      }
+    }
+  }
+}

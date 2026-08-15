@@ -1,0 +1,186 @@
+# Huit modes. L’orchestrateur n’invoque que les agents listés.
+# Canon SQUAD (ne pas inventer d’autres numéros) :
+# 00-orchestrator → 01-surface-mapper → 02-threat-modeling → 03-audit-onpage
+# → 04-auth-session → 05-authz-privilege → 06-api-backend → 07-config-secrets
+# → 08-supply-chain → 09-agent-mcp-skills → 10-adversarial-qa → 11-rapport-final
+# depth : express | standard | profond | adversarial | synthese
+
+modes:
+  - id: 01-express
+    name: Audit Express
+    file: ENGINE/modes/01-express.md
+    depth: express
+    duration_hint: 30-45 min
+    when: premier passage, revue de surface, urgence, devis
+    agents_invoked:
+      - squad-00-orchestrator
+      - squad-01-surface-mapper
+      - squad-02-threat-modeling
+      - squad-03-audit-onpage
+      - squad-07-config-secrets
+      - squad-10-adversarial-qa
+      - squad-11-rapport-final
+    specialists:
+      - express
+    mcp_agent: skip_unless_surface
+    requires_authorization_file: false
+    new_tests: true
+    mark_untested: authn profonde, authz tenant, API hors pages vues, supply chain, MCP
+
+  - id: 02-complet-web
+    name: Audit Complet Web
+    file: ENGINE/modes/02-complet-web.md
+    depth: profond
+    duration_hint: 1 journée
+    when: site ou app web (pages, cookies, front, API du même origine)
+    agents_invoked:
+      - squad-00-orchestrator
+      - squad-01-surface-mapper
+      - squad-02-threat-modeling
+      - squad-03-audit-onpage
+      - squad-04-auth-session
+      - squad-06-api-backend
+      - squad-07-config-secrets
+      - squad-08-supply-chain
+      - squad-09-agent-mcp-skills
+      - squad-10-adversarial-qa
+      - squad-11-rapport-final
+    specialists:
+      - page-endpoint
+    mcp_agent: inventaire_negatif_si_absent
+    requires_authorization_file: false
+    new_tests: true
+    mark_untested: authz multi-tenant profonde si aucun second compte / tenant de test
+
+  - id: 03-complet-saas
+    name: Audit Complet SaaS
+    file: ENGINE/modes/03-complet-saas.md
+    depth: profond
+    duration_hint: 1 à 2 jours
+    when: SaaS multi-utilisateur, orgs, rôles, facturation, webhooks
+    agents_invoked:
+      - squad-00-orchestrator
+      - squad-01-surface-mapper
+      - squad-02-threat-modeling
+      - squad-03-audit-onpage
+      - squad-04-auth-session
+      - squad-05-authz-privilege
+      - squad-06-api-backend
+      - squad-07-config-secrets
+      - squad-08-supply-chain
+      - squad-09-agent-mcp-skills
+      - squad-10-adversarial-qa
+      - squad-11-rapport-final
+    specialists:
+      - saas-multitenant
+      - page-endpoint
+    mcp_agent: inventaire_negatif_si_absent
+    requires_authorization_file: false
+    new_tests: true
+    mark_untested: tout tenant, rôle ou flux hors brief ; isolation si tenants < 2
+
+  - id: 04-agents-mcp
+    name: Audit Agents IA / MCP
+    file: ENGINE/modes/04-agents-mcp.md
+    depth: profond
+    duration_hint: 4-8 h
+    when: serveur MCP, tools, skills, copilote branché sur des données
+    agents_invoked:
+      - squad-00-orchestrator
+      - squad-01-surface-mapper
+      - squad-09-agent-mcp-skills
+      - squad-02-threat-modeling
+      - squad-04-auth-session
+      - squad-05-authz-privilege
+      - squad-06-api-backend
+      - squad-07-config-secrets
+      - squad-08-supply-chain
+      - squad-10-adversarial-qa
+      - squad-11-rapport-final
+    specialists:
+      - saas-multitenant
+    mcp_agent: required_first
+    requires_authorization_file: false
+    new_tests: true
+    mark_untested: UI hors outils agent, auth humaine hors délégation tool
+
+  - id: 05-delta
+    name: Delta / Re-audit
+    file: ENGINE/modes/05-delta.md
+    depth: standard
+    duration_hint: 2-6 h
+    when: après correctifs, ou « qu’est-ce qui a bougé ? »
+    agents_invoked:
+      - squad-00-orchestrator
+      - squad-01-surface-mapper
+      - squad-10-adversarial-qa
+      - squad-11-rapport-final
+    specialists:
+      - delta-reaudit
+    mcp_agent: si_baseline_agent
+    requires_authorization_file: false
+    new_tests: true
+    mark_untested: toute classe absente de la baseline, sauf nouvelle origine ajoutée au brief
+
+  - id: 06-continuous
+    name: Continuous Monitoring
+    file: ENGINE/modes/06-continuous.md
+    depth: standard
+    duration_hint: 30-90 min / run
+    when: snapshot mensuel, hook de release, garde-fou périodique
+    agents_invoked:
+      - squad-00-orchestrator
+      - squad-01-surface-mapper
+    specialists:
+      - tracker-continuous
+    mcp_agent: skip
+    requires_authorization_file: false
+    new_tests: true
+    mark_untested: n’ouvre pas de nouvelle classe hors sondes déjà posées
+
+  - id: 07-redteam-leger
+    name: Red-team léger
+    file: ENGINE/modes/07-redteam-leger.md
+    depth: adversarial
+    duration_hint: 1 à 3 jours
+    when: mandat d’exercice adverse, chasse aux angles morts
+    agents_invoked:
+      - squad-00-orchestrator
+      - squad-01-surface-mapper
+      - squad-02-threat-modeling
+      - squad-03-audit-onpage
+      - squad-04-auth-session
+      - squad-05-authz-privilege
+      - squad-06-api-backend
+      - squad-07-config-secrets
+      - squad-08-supply-chain
+      - squad-09-agent-mcp-skills
+      - squad-10-adversarial-qa
+      - squad-11-rapport-final
+    specialists:
+      - saas-multitenant
+      - page-endpoint
+    mcp_agent: inventaire_negatif_si_absent
+    requires_authorization_file: true
+    authorized_env: "yes"
+    new_tests: true
+    exploits: forbidden
+    stop_unless:
+      - AUTHORIZED=yes
+      - authorization.md présent et signé
+    mark_untested: tout hors du périmètre daté du mandat
+
+  - id: 08-rapport-board
+    name: Rapport Board / Exécutif
+    file: ENGINE/modes/08-rapport-board.md
+    depth: synthese
+    duration_hint: 1-3 h
+    when: journal déjà rempli et QA signée, besoin d’une synthèse décideur
+    agents_invoked:
+      - squad-00-orchestrator
+      - squad-11-rapport-final
+    specialists: []
+    mcp_agent: skip
+    requires_authorization_file: false
+    new_tests: false
+    mark_untested: n’invente aucune mesure nouvelle — reprends le journal

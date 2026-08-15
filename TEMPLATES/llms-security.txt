@@ -1,0 +1,35 @@
+# llms-security.txt
+# Fichier à publier à la racine (https://<origin>/llms-security.txt).
+# Format lisible par un agent. Commentaires en français. Directives en anglais.
+# Remplace chaque valeur d’exemple. N’invente pas un contact.
+
+# Contact de sécurité (un vrai boîte lue par un humain)
+Contact: mailto:security@example.com
+# Page de politique / bug bounty / disclosure (URL https)
+Policy: https://example.com/security
+# Langues de réponse
+Preferred-Languages: fr, en
+# Chiffrement optionnel (URL d’une clé OpenPGP) — omets la ligne si tu n’en as pas
+# Encryption: https://example.com/pgp-key.txt
+
+# Périmètre que tu acceptes de voir revu par un agent autorisé
+# Une origine par ligne. Pas de wildcard d’entreprise entière si tu ne l’assumes pas.
+Scope: https://example.com
+Scope: https://www.example.com
+# Exclusions (l’agent du kit doit les recopier dans out_of_scope)
+Exclude: https://example.com/admin
+Exclude: https://pay.example.com
+
+# Ce que tu autorises sans autre papier (observation seule)
+Allow-Methods: GET, HEAD, OPTIONS
+# Toute action au-delà exige un authorization.md signé (mode 7 du kit)
+Active-Testing: written-authorization-required
+
+# Rythme
+Crawl-Delay-Seconds: 2
+# Expiration de ce fichier (ISO-8601). Un fichier périmé = l’agent s’arrête et demande.
+Expires: 2027-01-01T00:00:00Z
+
+# Identité
+Canonical: https://example.com/llms-security.txt
+Acknowledgments: https://example.com/security/thanks

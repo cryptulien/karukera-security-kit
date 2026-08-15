@@ -1,0 +1,174 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://karukera.xyz/kit/schemas/project.schema.json",
+  "title": "Karukera project",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "id",
+    "slug",
+    "name",
+    "mode",
+    "status",
+    "scope",
+    "authorization",
+    "qa",
+    "coverage"
+  ],
+  "properties": {
+    "id": {
+      "type": "string",
+      "pattern": "^prj-[a-z0-9-]+$"
+    },
+    "slug": {
+      "type": "string",
+      "pattern": "^[a-z0-9-]+$"
+    },
+    "name": {
+      "type": "string",
+      "minLength": 2
+    },
+    "client": {
+      "type": "string"
+    },
+    "status": {
+      "type": "string",
+      "enum": ["open", "paused", "closed"]
+    },
+    "mode": {
+      "type": "string",
+      "enum": [
+        "01-express",
+        "02-complet-web",
+        "03-complet-saas",
+        "04-agents-mcp",
+        "05-delta",
+        "06-continuous",
+        "07-redteam-leger",
+        "08-rapport-board"
+      ]
+    },
+    "mode_baseline": {
+      "type": "string",
+      "description": "Mode d'origine si le mode courant est 05, 06 ou 08."
+    },
+    "addons": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "Ex. saas-multitenant quand le mode 4 porte aussi une tenancy."
+    },
+    "related_projects": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "created_at": {
+      "type": "string",
+      "format": "date"
+    },
+    "updated_at": {
+      "type": "string",
+      "format": "date"
+    },
+    "fictif": {
+      "type": "boolean",
+      "default": false
+    },
+    "scope": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["urls", "hosts", "out_of_scope", "tenants_available"],
+      "properties": {
+        "urls": {
+          "type": "array",
+          "minItems": 1,
+          "items": { "type": "string" }
+        },
+        "hosts": {
+          "type": "array",
+          "minItems": 1,
+          "items": { "type": "string" }
+        },
+        "out_of_scope": {
+          "type": "array",
+          "items": { "type": "string" }
+        },
+        "tenants_available": {
+          "type": "integer",
+          "minimum": 0,
+          "description": "Comptes d'org réellement utilisables. < 2 ⇒ isolation Non testé."
+        }
+      }
+    },
+    "authorization": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["authorized"],
+      "properties": {
+        "authorized": {
+          "type": "string",
+          "enum": ["yes", "no"]
+        },
+        "file": {
+          "type": "string"
+        },
+        "signer": {
+          "type": "string"
+        },
+        "valid_from": {
+          "type": "string",
+          "format": "date"
+        },
+        "valid_to": {
+          "type": "string",
+          "format": "date"
+        }
+      }
+    },
+    "qa": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["passed"],
+      "properties": {
+        "passed": {
+          "type": "boolean"
+        },
+        "signed_by": {
+          "type": "string"
+        },
+        "date": {
+          "type": "string",
+          "format": "date"
+        },
+        "file": {
+          "type": "string",
+          "default": "journal/qa/signoff.md"
+        }
+      }
+    },
+    "coverage": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["planned", "tested"],
+      "properties": {
+        "planned": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "tested": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "confidence_globale": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 5,
+          "description": "Jauge de mission, distincte du C de chaque finding."
+        }
+      }
+    }
+  }
+}
