@@ -1,12 +1,16 @@
 # Karukera Security Kit
 
-Tu sécurises **ton** application — donc tes revenus. ZIP de prompts, configs et templates pour un Web / SaaS **dont tu as l’autorisation**. Zéro exploit. Zéro payload. Zéro PoC d’attaque.
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](./LICENSE)
 
-Tu ouvres le ZIP dans Claude, Codex, Cursor ou un autre agent. Tu choisis le projet chez toi, la profondeur, et si tu fournis des accès. Tu reçois les rapports avec preuves, puis des tickets de correctif avec un prompt à coller dans ton LLM.
+**Open source** defensive security audit kit: prompts, configs, and templates for a Web / SaaS you are **authorized** to test. Zero exploits. Zero attack payloads. Zero attack PoCs.
 
-Beaucoup de modèles refusent de faire l’audit : dépose une clé OpenRouter hors chat (`GUIDES/deposit-key.md`). Karukera ne voit pas la cible.
+Clone this repo into Claude, Codex, Cursor, or another agent. Pick the local project, depth, and whether you provide access. You get evidence-backed reports, then fix tickets with a prompt to paste into your LLM.
 
-Commence par `START-HERE.md`.
+Many models refuse audit work: deposit an OpenRouter key outside the chat (`GUIDES/deposit-key.md`). This kit never proxies your target.
+
+Start with `START-HERE.md`. See also [CONTRIBUTING.md](./CONTRIBUTING.md) and [SECURITY.md](./SECURITY.md).
+
+> Formerly distributed as a paid ZIP. Now MIT — fork, improve, share.
 
 ## Ce que le kit impose
 
