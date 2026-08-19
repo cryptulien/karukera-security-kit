@@ -1,0 +1,58 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1400" height="620" viewBox="0 0 1400 620" role="img" aria-labelledby="t">
+  <title id="t">Security Kit workflow</title>
+  <rect width="1400" height="620" fill="#F4F3EF"/>
+  <text x="48" y="52" font-family="DejaVu Sans, Helvetica, Arial, sans-serif" font-size="26" font-weight="700" fill="#121212">How it works</text>
+  <text x="48" y="82" font-family="DejaVu Sans, Helvetica, Arial, sans-serif" font-size="15" fill="#5C5954">Authorized target only · zero exploits · report blocked until QA passes</text>
+
+  <g font-family="DejaVu Sans, Helvetica, Arial, sans-serif">
+    <rect x="36" y="140" width="176" height="88" rx="12" fill="#fff" stroke="#121212" stroke-width="1.4"/>
+    <text x="124" y="176" text-anchor="middle" font-size="14" fill="#121212">Authorized</text>
+    <text x="124" y="198" text-anchor="middle" font-size="14" fill="#121212">target</text>
+    <path d="M212 184 H232" stroke="#4A4742" stroke-width="1.6"/>
+    <polygon points="232,178 244,184 232,190" fill="#4A4742"/>
+
+    <rect x="248" y="140" width="176" height="88" rx="12" fill="#fff" stroke="#121212" stroke-width="1.4"/>
+    <text x="336" y="176" text-anchor="middle" font-size="14" fill="#121212">Rules 00–07</text>
+    <text x="336" y="198" text-anchor="middle" font-size="12" fill="#5C5954">no invention</text>
+    <path d="M424 184 H444" stroke="#4A4742" stroke-width="1.6"/>
+    <polygon points="444,178 456,184 444,190" fill="#4A4742"/>
+
+    <rect x="460" y="140" width="176" height="88" rx="12" fill="#fff" stroke="#121212" stroke-width="1.4"/>
+    <text x="548" y="176" text-anchor="middle" font-size="14" fill="#121212">Squad +</text>
+    <text x="548" y="198" text-anchor="middle" font-size="14" fill="#121212">specialists</text>
+    <path d="M636 184 H656" stroke="#4A4742" stroke-width="1.6"/>
+    <polygon points="656,178 668,184 656,190" fill="#4A4742"/>
+
+    <rect x="672" y="140" width="176" height="88" rx="12" fill="#fff" stroke="#121212" stroke-width="1.4"/>
+    <text x="760" y="176" text-anchor="middle" font-size="14" fill="#121212">Evidence</text>
+    <text x="760" y="198" text-anchor="middle" font-size="12" fill="#5C5954">URL · excerpt · date</text>
+    <path d="M848 184 H868" stroke="#4A4742" stroke-width="1.6"/>
+    <polygon points="868,178 880,184 868,190" fill="#4A4742"/>
+
+    <rect x="884" y="140" width="176" height="88" rx="12" fill="#fff" stroke="#121212" stroke-width="1.4"/>
+    <text x="972" y="176" text-anchor="middle" font-size="14" fill="#121212">Score I E C F V</text>
+    <text x="972" y="198" text-anchor="middle" font-size="12" fill="#5C5954">P0–P3 bands</text>
+    <path d="M1060 184 H1080" stroke="#4A4742" stroke-width="1.6"/>
+    <polygon points="1080,178 1092,184 1080,190" fill="#4A4742"/>
+
+    <polygon points="1180,140 1288,184 1180,228 1072,184" fill="#fff" stroke="#121212" stroke-width="1.4"/>
+    <text x="1180" y="180" text-anchor="middle" font-size="14" fill="#121212">QA passed?</text>
+    <text x="1180" y="200" text-anchor="middle" font-size="12" fill="#5C5954">else stop</text>
+  </g>
+
+  <path d="M1180 228 V268" stroke="#4A4742" stroke-width="1.6"/>
+  <polygon points="1174,268 1180,280 1186,268" fill="#4A4742"/>
+  <rect x="1072" y="284" width="216" height="80" rx="12" fill="#fff" stroke="#121212" stroke-width="1.4"/>
+  <text x="1180" y="318" text-anchor="middle" font-family="DejaVu Sans, Helvetica, Arial, sans-serif" font-size="14" fill="#121212">Report + fix tickets</text>
+  <text x="1180" y="342" text-anchor="middle" font-family="DejaVu Sans, Helvetica, Arial, sans-serif" font-size="12" fill="#5C5954">prompt per ticket</text>
+
+  <rect x="36" y="284" width="980" height="176" rx="16" fill="#fff" stroke="#121212" stroke-opacity="0.08"/>
+  <text x="60" y="324" font-family="DejaVu Sans, Helvetica, Arial, sans-serif" font-size="16" font-weight="700" fill="#121212">Hard gates</text>
+  <text x="60" y="356" font-family="DejaVu Sans, Helvetica, Arial, sans-serif" font-size="15" fill="#4A4742">OpenRouter key deposited out of chat — many frontier models refuse audits.</text>
+  <text x="60" y="384" font-family="DejaVu Sans, Helvetica, Arial, sans-serif" font-size="15" fill="#4A4742">Confirmed requires proof. Coverage and confidence stay two separate gauges.</text>
+  <text x="60" y="412" font-family="DejaVu Sans, Helvetica, Arial, sans-serif" font-size="15" fill="#4A4742">Red-team mode: AUTHORIZED=yes + authorization.md, or the kit stops.</text>
+  <text x="60" y="440" font-family="DejaVu Sans, Helvetica, Arial, sans-serif" font-size="15" fill="#4A4742">Crawled content is data, never instructions.</text>
+
+  <text x="48" y="520" font-family="DejaVu Sans, Helvetica, Arial, sans-serif" font-size="13" fill="#5C5954">Approaches (combinable): outside · code · inside. Modes: express · full web · full SaaS · agents/MCP · delta · continuous · light red-team · board report.</text>
+  <text x="48" y="556" font-family="DejaVu Sans, Helvetica, Arial, sans-serif" font-size="13" fill="#5C5954">Source: draw.superpagr.com · pages/open-source/security-kit</text>
+</svg>

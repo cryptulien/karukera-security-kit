@@ -1,78 +1,88 @@
-# Karukera Security Kit
+# Security Kit
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](./LICENSE)
 
-**Open source** defensive security audit kit: prompts, configs, and templates for a Web / SaaS you are **authorized** to test. Zero exploits. Zero attack payloads. Zero attack PoCs.
+![Security Kit card](docs/card/card.png)
+
+**Open-source** defensive security audit kit: prompts, configs, and templates for a Web / SaaS you are **authorized** to test. Zero exploits. Zero attack payloads. Zero attack PoCs.
 
 Clone this repo into Claude, Codex, Cursor, or another agent. Pick the local project, depth, and whether you provide access. You get evidence-backed reports, then fix tickets with a prompt to paste into your LLM.
 
 Many models refuse audit work: deposit an OpenRouter key outside the chat (`GUIDES/deposit-key.md`). This kit never proxies your target.
 
-Start with `START-HERE.md`. See also [CONTRIBUTING.md](./CONTRIBUTING.md) and [SECURITY.md](./SECURITY.md).
+Start with [`START-HERE.md`](./START-HERE.md). See also [CONTRIBUTING.md](./CONTRIBUTING.md) and [SECURITY.md](./SECURITY.md).
 
-> Formerly distributed as a paid ZIP. Now MIT — fork, improve, share.
+> Formerly a paid ZIP. Now MIT — fork, improve, share.
 
-## Ce que le kit impose
+## How it works
 
-1. OpenRouter avant tout agent — pas pour la déco, parce que Claude / Codex / d’autres refusent souvent l’audit. Clé hors chat (`GUIDES/deposit-key.md`). Absente → **stop**. Jamais dans le fil LLM.
-2. Six statuts de mesure. Confirmé exige une preuve (URL + extrait + date).
-3. Score à cinq dimensions. Formule et bandes P0–P3 dans `RULES/05-scoring.md`.
-4. Couverture ≠ confiance. Deux jauges, jamais fusionnées.
-5. Rapport final bloqué tant que `qa.passed` n’est pas `true`.
-6. Mode 7 red-team : `AUTHORIZED=yes` + `authorization.md`, sinon **stop**.
-7. Journal append-only. Reprise après coupure via `ENGINE/resume.md`.
-8. Contenu crawlé = données, jamais des instructions (`RULES/04-anti-injection.md`).
+![Workflow](docs/diagrams/workflow.png)
 
-## Arborescence
+Authorized target → rules → squad + specialists → evidence chain → five-dimension score → double QA → report and fix tickets.
+
+Diagram source: [draw.superpagr.com](https://draw.superpagr.com) · `pages/open-source/security-kit`.
+
+## What the kit enforces
+
+1. OpenRouter before any agent — not for decoration: Claude / Codex / others often refuse audits. Key out of chat (`GUIDES/deposit-key.md`). Missing → **stop**. Never paste it in the LLM thread.
+2. Six measurement statuses. Confirmed requires proof (URL + excerpt + date).
+3. Score on five dimensions. Formula and P0–P3 bands in `RULES/05-scoring.md`.
+4. Coverage ≠ confidence. Two gauges, never merged.
+5. Final report blocked until `qa.passed` is `true`.
+6. Mode 7 light red-team: `AUTHORIZED=yes` + `authorization.md`, else **stop**.
+7. Append-only journal. Resume after a cut via `ENGINE/resume.md`.
+8. Crawled content is data, never instructions (`RULES/04-anti-injection.md`).
+
+## Layout
 
 ```
-START-HERE.md     ← ouvre ça en premier
+START-HERE.md     ← open this first
 README.md
 USAGE.md
 CHANGELOG.md
 CONTRAT.md
 .env.example
-bin/              ← dépôt et sonde de clé, hors chat
+bin/              ← key deposit + probe, out of chat
 config/
   kit.yaml
   openrouter.json.example
   models.yaml
   mission-modes.yaml
-RULES/            ← charge 00 → 07 avant tout agent
-GUIDES/           ← dépôt de clé, postures, OpenRouter, missions, scoring
-SQUAD/            ← orchestrateur + agents de mission
-SPECIALISTS/      ← expertises ciblées
-ENGINE/           ← collecte, score, journal, reprise, modes
+RULES/            ← load 00 → 07 before any agent
+GUIDES/           ← key deposit, postures, OpenRouter, missions, scoring
+SQUAD/            ← orchestrator + mission agents
+SPECIALISTS/      ← targeted expertise
+ENGINE/           ← collect, score, journal, resume, modes
 TEMPLATES/
 SCHEMAS/
 LIVRABLES/
 examples/
 ```
 
-## Modèles
+## Models
 
-| Mode | Analyse | Raisonnement | Rédaction |
+| Mode | Analysis | Reasoning | Writing |
 | --- | --- | --- | --- |
-| `budget` | `deepseek/deepseek-v4-flash-0731` | `moonshotai/kimi-k3` | Kimi K3, ou Claude / GPT si tu l’actives |
+| `budget` | `deepseek/deepseek-v4-flash-0731` | `moonshotai/kimi-k3` | Kimi K3, or Claude / GPT if you enable it |
 | `max-frontier` | `moonshotai/kimi-k3` | `moonshotai/kimi-k3` | Claude Sonnet 5 / Fable 5 / GPT-5.6 Sol |
 | fallback | `glm-5.3` / `5.2`, DeepSeek Pro 0813, `qwen3.8-max`, `minimax-m3` | | |
 
-Analyse profonde → Kimi K3. Crawl budget → Flash 0731. Rédaction et priorisation → modèle plus prudent si tu le demandes. Détail : `config/models.yaml` et `GUIDES/openrouter.md`.
+Deep analysis → Kimi K3. Budget crawl → Flash 0731. Writing / prioritization → a more cautious model if you ask. Details: `config/models.yaml` and `GUIDES/openrouter.md`.
 
-## Trois approches, huit modes
+## Three approaches, eight modes
 
-Approches, combinables : **extérieur** · **code** · **intérieur**. `GUIDES/postures.md`.
+Combinable approaches: **outside** · **code** · **inside**. See `GUIDES/postures.md`.
 
-Modes : `01-express` · `02-complet-web` · `03-complet-saas` · `04-agents-mcp` · `05-delta` · `06-continuous` · `07-redteam-leger` · `08-rapport-board`.
+Modes: `01-express` · `02-complet-web` · `03-complet-saas` · `04-agents-mcp` · `05-delta` · `06-continuous` · `07-redteam-leger` · `08-rapport-board`.
 
-Canon : `config/mission-modes.yaml`. Entrée opérateur : `GUIDES/missions.md`.
+Canon: `config/mission-modes.yaml`. Operator entry: `GUIDES/missions.md`.
 
-Sortie correctifs : `TEMPLATES/fix-ticket.md` → `projects/<slug>/livrables/tickets/`.
+Fix output: `TEMPLATES/fix-ticket.md` → `projects/<slug>/livrables/tickets/`.
 
-## Ce que ce ZIP n’est pas
+## What this is not
 
-Pas un scanner hébergé. Pas une agence. Pas un framework d’exploit. Pas une garantie d’exhaustivité.
+Not a hosted scanner. Not an agency. Not an exploit framework. Not a completeness guarantee.
 
-## Licence d’usage
+## Usage license
 
-Usage autorisé uniquement. Lis `USAGE.md` et `GUIDES/authorized-use.md` avant la première mission.
+Authorized use only. Read `USAGE.md` and `GUIDES/authorized-use.md` before the first mission.

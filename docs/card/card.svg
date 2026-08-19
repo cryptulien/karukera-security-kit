@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="540" viewBox="0 0 960 540" role="img" aria-labelledby="title desc">
+  <title id="title">Security Kit</title>
+  <desc id="desc">Authorized, evidence-backed Web/SaaS audit kit. Zero exploits. MIT.</desc>
+  <rect width="960" height="540" fill="#F4F3EF"/>
+  <rect x="48" y="36" width="864" height="468" rx="24" fill="#ffffff" stroke="#121212" stroke-opacity="0.08" stroke-width="1"/>
+  <rect x="48" y="36" width="8" height="468" rx="0" fill="#121212"/>
+  <text x="88" y="92" font-family="DejaVu Sans, Helvetica, Arial, sans-serif" font-size="14" fill="#5C5954">Open source · prompts, rules, reports</text>
+  <text x="88" y="142" font-family="DejaVu Sans, Helvetica, Arial, sans-serif" font-size="40" font-weight="700" fill="#121212">Security Kit</text>
+  <text x="88" y="182" font-family="DejaVu Sans, Helvetica, Arial, sans-serif" font-size="18" fill="#4A4742">Authorized Web / SaaS audit. Evidence-backed. Zero exploits.</text>
+  <g fill="#121212" font-family="DejaVu Sans, Helvetica, Arial, sans-serif" font-size="17">
+    <circle cx="96" cy="236" r="3" fill="#121212"/>
+    <text x="112" y="242">Authorized use only — no payloads, no attack PoCs</text>
+    <circle cx="96" cy="272" r="3" fill="#121212"/>
+    <text x="112" y="278">Six measurement statuses · confirmed needs proof</text>
+    <circle cx="96" cy="308" r="3" fill="#121212"/>
+    <text x="112" y="314">Squad + specialists · double QA before the report</text>
+    <circle cx="96" cy="344" r="3" fill="#121212"/>
+    <text x="112" y="350">Runs locally in Claude, Codex, Cursor, Hermes</text>
+  </g>
+  <rect x="88" y="392" width="64" height="28" rx="14" fill="none" stroke="#5C5954" stroke-width="1.2"/>
+  <text x="120" y="411" text-anchor="middle" font-family="DejaVu Sans, Helvetica, Arial, sans-serif" font-size="12" fill="#5C5954">MIT</text>
+  <text x="168" y="411" font-family="DejaVu Sans, Helvetica, Arial, sans-serif" font-size="15" fill="#4A4742">github.com/cryptulien/security-kit</text>
+  <text x="88" y="462" font-family="DejaVu Sans, Helvetica, Arial, sans-serif" font-size="13" fill="#5C5954">Start with START-HERE.md · OpenRouter key out of band</text>
+</svg>
